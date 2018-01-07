@@ -21,6 +21,7 @@ RUN echo "deb http://ppa.launchpad.net/jonathonf/python-3.6/ubuntu trusty main" 
  && apt-get install -y curl unzip \
     python3.6 python3-setuptools \
  && ln -s /usr/bin/python3.6 /usr/bin/python \
+ && pip3 install --upgrade pip setuptools \
  && easy_install pip py4j \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
