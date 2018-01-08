@@ -18,11 +18,11 @@ ENV LC_ALL en_US.UTF-8
 
 RUN echo "deb http://ppa.launchpad.net/jonathonf/python-3.6/ubuntu trusty main" >> /etc/apt/sources.list \
  && apt-get update \
- && apt-get install -y curl unzip \
-    python3.6 python3-setuptools \
+ && apt-get install -y --force-yes curl unzip \
+    python3.6 \
  && ln -s /usr/bin/python3.6 /usr/bin/python \
- && pip3 install --upgrade pip setuptools \
- && easy_install pip py4j \
+ && curl https://bootstrap.pypa.io/get-pip.py | python3.6 \
+ && pip install --upgrade pip setuptools \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
 
